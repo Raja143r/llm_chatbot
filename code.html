@@ -1,0 +1,348 @@
+<!DOCTYPE html><html class="h-full" lang="en"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>DocuSignal - Interactive Summary</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "surface-container-low": "#eff4ff",
+                        "tertiary-container": "#3d4143",
+                        "surface-dim": "#cbdbf5",
+                        "surface-bright": "#f8f9ff",
+                        "on-primary-container": "#90a8ff",
+                        "outline-variant": "#c5c5d3",
+                        "secondary-fixed": "#89f5e7",
+                        "on-secondary-container": "#006f66",
+                        "surface-variant": "#d3e4fe",
+                        "on-background": "#0b1c30",
+                        "on-error-container": "#93000a",
+                        "surface-container-highest": "#d3e4fe",
+                        "on-secondary": "#ffffff",
+                        "primary-container": "#1e3a8a",
+                        "outline": "#757682",
+                        "surface-container-lowest": "#ffffff",
+                        "on-surface": "#0b1c30",
+                        "inverse-surface": "#213145",
+                        "on-surface-variant": "#444651",
+                        "inverse-on-surface": "#eaf1ff",
+                        "secondary-fixed-dim": "#6bd8cb",
+                        "on-primary-fixed-variant": "#264191",
+                        "on-error": "#ffffff",
+                        "surface-tint": "#4059aa",
+                        "surface-container-high": "#dce9ff",
+                        "on-tertiary": "#ffffff",
+                        "on-primary-fixed": "#00164e",
+                        "on-secondary-fixed-variant": "#005049",
+                        "on-tertiary-fixed-variant": "#444749",
+                        "primary": "#00236f",
+                        "secondary": "#006a61",
+                        "tertiary-fixed": "#e0e3e5",
+                        "surface": "#f8f9ff",
+                        "secondary-container": "#86f2e4",
+                        "tertiary-fixed-dim": "#c4c7c9",
+                        "tertiary": "#272b2d",
+                        "inverse-primary": "#b6c4ff",
+                        "background": "#f8f9ff",
+                        "on-primary": "#ffffff",
+                        "surface-container": "#e5eeff",
+                        "on-tertiary-container": "#aaadaf",
+                        "error": "#ba1a1a",
+                        "on-secondary-fixed": "#00201d",
+                        "error-container": "#ffdad6",
+                        "primary-fixed-dim": "#b6c4ff",
+                        "primary-fixed": "#dce1ff",
+                        "on-tertiary-fixed": "#191c1e"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "section-gap": "32px",
+                        "gutter": "16px",
+                        "container-margin": "20px",
+                        "stack-md": "16px",
+                        "base": "4px",
+                        "stack-lg": "24px",
+                        "stack-sm": "8px"
+                    },
+                    "fontFamily": {
+                        "body-md": ["Inter"],
+                        "mono-label": ["Geist"],
+                        "headline-lg": ["Geist"],
+                        "headline-lg-mobile": ["Geist"],
+                        "headline-md": ["Geist"],
+                        "label-caps": ["Geist"],
+                        "body-lg": ["Inter"]
+                    },
+                    "fontSize": {
+                        "body-md": ["14px", { "lineHeight": "22px", "fontWeight": "400" }],
+                        "mono-label": ["13px", { "lineHeight": "18px", "fontWeight": "500" }],
+                        "headline-lg": ["30px", { "lineHeight": "38px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "headline-lg-mobile": ["24px", { "lineHeight": "32px", "letterSpacing": "-0.01em", "fontWeight": "700" }],
+                        "headline-md": ["20px", { "lineHeight": "28px", "fontWeight": "600" }],
+                        "label-caps": ["12px", { "lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "600" }],
+                        "body-lg": ["16px", { "lineHeight": "26px", "fontWeight": "400" }]
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-background text-on-background font-body-md h-full flex flex-col md:flex-row overflow-hidden">
+<!-- SideNavBar (Desktop Only) -->
+<nav class="hidden md:flex flex-col h-full p-4 gap-stack-md bg-surface-container-low w-64 shadow-sm z-20 shrink-0">
+<div class="flex items-center gap-3 px-2 mb-stack-md">
+<div class="w-10 h-10 rounded-lg bg-primary-container text-on-primary-container flex items-center justify-center font-headline-md font-bold shrink-0">
+                DS
+            </div>
+<div>
+<h1 class="font-headline-md text-headline-md font-bold text-primary truncate">DocuSignal</h1>
+<p class="font-label-caps text-label-caps text-on-surface-variant uppercase tracking-wider">Enterprise Plan</p>
+</div>
+</div>
+<button class="w-full bg-primary text-on-primary rounded-lg py-3 px-4 font-headline-md text-[14px] flex items-center justify-center gap-2 hover:opacity-90 transition-opacity shadow-sm">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">upload</span>
+            Upload PDF
+        </button>
+<div class="flex-1 mt-stack-md flex flex-col gap-base">
+<a class="flex items-center gap-3 px-3 py-2 text-on-surface-variant hover:bg-surface-container-high rounded-lg cursor-pointer active:opacity-80 transition-all" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">dashboard</span>
+<span class="">Dashboard</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 text-on-surface-variant hover:bg-surface-container-high rounded-lg cursor-pointer active:opacity-80 transition-all" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">description</span>
+<span class="">Library</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 bg-secondary-container text-on-secondary-container font-bold rounded-lg cursor-pointer active:opacity-80 transition-all shadow-sm" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">history</span>
+<span class="">Recent Summaries</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 text-on-surface-variant hover:bg-surface-container-high rounded-lg cursor-pointer active:opacity-80 transition-all" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">edit_note</span>
+<span class="">Drafts</span>
+</a>
+</div>
+<div class="mt-auto flex flex-col gap-base pt-stack-md border-t border-outline-variant/30">
+<a class="flex items-center gap-3 px-3 py-2 text-on-surface-variant hover:bg-surface-container-high rounded-lg cursor-pointer transition-all" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">help</span>
+<span class="">Help</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 text-on-surface-variant hover:bg-surface-container-high rounded-lg cursor-pointer transition-all" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">logout</span>
+<span class="">Sign Out</span>
+</a>
+</div>
+</nav>
+<!-- TopAppBar (Mobile Fallback) -->
+<header class="md:hidden flex justify-between items-center px-gutter py-4 w-full h-16 bg-surface shadow-sm z-20 shrink-0">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded-lg bg-primary-container text-on-primary-container flex items-center justify-center font-headline-md font-bold">
+                DS
+            </div>
+<h1 class="font-headline-md text-headline-md font-bold text-primary">DocuSignal</h1>
+</div>
+<div class="flex items-center gap-3">
+<button class="p-2 text-on-surface-variant hover:bg-surface-container-high rounded-full transition-colors">
+<span class="material-symbols-outlined">menu</span>
+</button>
+</div>
+</header>
+<!-- Main Canvas -->
+<main class="flex-1 flex flex-col md:flex-row h-full overflow-hidden bg-background">
+<!-- Left Panel: Summary View -->
+<section class="flex-1 flex flex-col h-full border-r border-outline-variant/30 overflow-y-auto">
+<!-- Metadata Header -->
+<header class="p-gutter md:p-[24px] border-b border-outline-variant/30 bg-surface z-10 sticky top-0 shadow-[0_4px_16px_rgba(0,0,0,0.02)]">
+<div class="flex items-start justify-between gap-4">
+<div>
+<div class="flex items-center gap-2 mb-stack-sm flex-wrap">
+<span class="bg-[#E0E7FF] text-primary font-mono-label text-mono-label px-2 py-1 rounded">PDF</span>
+<span class="text-on-surface-variant font-body-md text-sm">Uploaded 2 hours ago</span>
+<span class="flex items-center gap-1 text-secondary text-sm font-medium">
+<span class="material-symbols-outlined text-[16px]">check_circle</span>
+                                Summary Complete
+                            </span>
+</div>
+<h2 class="font-headline-lg-mobile md:font-headline-lg text-headline-lg-mobile md:text-headline-lg text-on-background text-balance">Q3 Financial Performance &amp; Strategic Outlook 2024.pdf</h2>
+</div>
+<div class="flex gap-2 shrink-0">
+<button class="p-2 text-on-surface-variant hover:bg-surface-container-high rounded-full transition-colors border border-outline-variant/50" title="Export">
+<span class="material-symbols-outlined">download</span>
+</button>
+<button class="p-2 text-on-surface-variant hover:bg-surface-container-high rounded-full transition-colors border border-outline-variant/50" title="Share">
+<span class="material-symbols-outlined">share</span>
+</button>
+</div>
+</div>
+</header>
+<!-- Summary Content (Bento/Card Layout) -->
+<div class="p-gutter md:p-[24px] flex flex-col gap-stack-lg max-w-4xl mx-auto w-full">
+<!-- Exec Summary Card -->
+<article class="bg-surface-container-lowest rounded-xl p-stack-lg shadow-[0_4px_8px_rgba(0,0,0,0.04)] border border-outline-variant/20">
+<h3 class="font-label-caps text-label-caps text-on-surface-variant uppercase tracking-widest mb-stack-sm flex items-center gap-2">
+<span class="material-symbols-outlined text-[16px] text-primary">subject</span>
+                        Executive Summary
+                    </h3>
+<p class="font-body-lg text-body-lg text-on-surface leading-relaxed">
+                        The Q3 2024 financial report indicates a robust 14% year-over-year revenue growth, primarily driven by the Enterprise SaaS segment. Despite macroeconomic headwinds, operating margins expanded by 240 bps due to aggressive cost-optimization initiatives initiated in Q1. The strategic focus remains on expanding the AI-integration product suite and penetrating the APAC market.
+                    </p>
+</article>
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-stack-lg">
+<!-- Key Highlights -->
+<article class="bg-surface-container-lowest rounded-xl p-stack-lg shadow-[0_4px_8px_rgba(0,0,0,0.04)] border border-outline-variant/20">
+<h3 class="font-label-caps text-label-caps text-on-surface-variant uppercase tracking-widest mb-stack-md flex items-center gap-2">
+<span class="material-symbols-outlined text-[16px] text-secondary">insights</span>
+                            Key Highlights
+                        </h3>
+<ul class="flex flex-col gap-stack-sm">
+<li class="flex items-start gap-3">
+<div class="w-6 h-6 rounded-full bg-surface-container-low text-primary flex items-center justify-center shrink-0 mt-0.5">
+<span class="material-symbols-outlined text-[14px]">arrow_upward</span>
+</div>
+<div>
+<span class="font-bold text-on-surface">Revenue Growth:</span>
+<span class="text-on-surface-variant">Top-line revenue hit $42.5M, a 14% YoY increase.</span>
+</div>
+</li>
+<li class="flex items-start gap-3">
+<div class="w-6 h-6 rounded-full bg-surface-container-low text-primary flex items-center justify-center shrink-0 mt-0.5">
+<span class="material-symbols-outlined text-[14px]">pie_chart</span>
+</div>
+<div>
+<span class="font-bold text-on-surface">Margin Expansion:</span>
+<span class="text-on-surface-variant">Operating margin improved to 28.4% (up 240 bps).</span>
+</div>
+</li>
+<li class="flex items-start gap-3">
+<div class="w-6 h-6 rounded-full bg-[#FFF0F0] text-error flex items-center justify-center shrink-0 mt-0.5">
+<span class="material-symbols-outlined text-[14px]">warning</span>
+</div>
+<div>
+<span class="font-bold text-on-surface">Customer Churn:</span>
+<span class="text-on-surface-variant">SMB segment churn increased slightly to 2.1%.</span>
+</div>
+</li>
+</ul>
+</article>
+<!-- Action Items -->
+<article class="bg-surface-container-lowest rounded-xl p-stack-lg shadow-[0_4px_8px_rgba(0,0,0,0.04)] border border-outline-variant/20">
+<h3 class="font-label-caps text-label-caps text-on-surface-variant uppercase tracking-widest mb-stack-md flex items-center gap-2">
+<span class="material-symbols-outlined text-[16px] text-primary">task_alt</span>
+                            Action Items
+                        </h3>
+<div class="flex flex-col gap-stack-sm">
+<label class="flex items-start gap-3 p-3 rounded-lg hover:bg-surface-container-low transition-colors cursor-pointer border border-transparent hover:border-outline-variant/30">
+<input class="mt-1 rounded text-primary focus:ring-primary w-4 h-4 border-outline-variant" type="checkbox">
+<span class="text-on-surface font-body-md">Schedule strategy alignment meeting with APAC regional directors by Nov 15th.</span>
+</label>
+<label class="flex items-start gap-3 p-3 rounded-lg hover:bg-surface-container-low transition-colors cursor-pointer border border-transparent hover:border-outline-variant/30">
+<input class="mt-1 rounded text-primary focus:ring-primary w-4 h-4 border-outline-variant" type="checkbox">
+<span class="text-on-surface font-body-md">Review SMB retention taskforce proposal and allocate budget for Q4 initiatives.</span>
+</label>
+</div>
+</article>
+</div>
+</div>
+</section>
+<!-- Right Panel: AI Chat Interface -->
+<section class="w-full md:w-[400px] lg:w-[480px] bg-surface flex flex-col h-full shrink-0 shadow-[-4px_0_16px_rgba(0,0,0,0.02)]">
+<header class="p-4 border-b border-outline-variant/30 flex items-center justify-between bg-surface-container-lowest"><div class="flex flex-col w-full gap-3">
+    <div class="flex items-center justify-between">
+        <div class="flex items-center gap-2 text-primary font-headline-md text-[16px]">
+            <span class="material-symbols-outlined">forum</span>
+            Assistant
+        </div>
+        <button class="p-1.5 text-on-surface-variant hover:bg-surface-container-high rounded-full transition-colors" title="Clear Chat">
+            <span class="material-symbols-outlined text-[20px]">delete_sweep</span>
+        </button>
+    </div>
+    <div class="flex bg-surface-container-low p-1 rounded-lg">
+        <button class="flex-1 py-1.5 text-xs font-medium rounded-md bg-surface-container-lowest text-primary shadow-sm transition-all">Document</button>
+        <button class="flex-1 py-1.5 text-xs font-medium rounded-md text-on-surface-variant hover:text-on-surface transition-all">General Chat</button>
+    </div>
+</div></header>
+<div class="flex-1 overflow-y-auto p-4 flex flex-col gap-stack-md bg-[#F8FAFC]">
+<!-- System/Welcome Message -->
+<div class="flex gap-3 max-w-[85%]">
+<div class="w-8 h-8 rounded-full bg-primary-container text-on-primary-container flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-[16px]">robot_2</span>
+</div>
+<div class="bg-surface-container-lowest border border-outline-variant/20 p-3 rounded-2xl rounded-tl-sm shadow-[0_2px_4px_rgba(0,0,0,0.02)]">
+<p class="font-body-md text-on-surface text-sm">
+                            I've analyzed the document. You can ask me questions like:
+                        </p>
+<div class="mt-2 flex flex-col gap-1">
+<button class="text-left text-primary text-xs font-medium hover:underline p-1.5 bg-surface-container-low rounded">"What were the main drivers of margin expansion?"</button>
+<button class="text-left text-primary text-xs font-medium hover:underline p-1.5 bg-surface-container-low rounded">"Summarize the APAC strategy."</button>
+</div>
+</div>
+</div>
+<!-- User Message -->
+<div class="flex gap-3 max-w-[85%] self-end flex-row-reverse">
+<div class="w-8 h-8 rounded-full bg-surface-variant text-on-surface-variant flex items-center justify-center shrink-0 overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="A professional headshot of a person looking forward, well lit, against a plain white background, sharp focus, corporate style." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBUwRVaTY0rV5i0HJID7JgfFy4aZCZ9iziflzjWsgj5Qlp-ox2yZ33kdsq9xPt-Vkk4wDxtPsmVk_DrRpHpOja0H83PePEz4LLzhDdDpILFzuimaj41HbPWYDXmPcYXJcvxjp_zM3PfaBGlruISoDnAyZn_eVlodz2TV_UB2qL5kNl4M6grcLbZiGTodwhikij4yqpXmfX7bPlmB5tD3fYfNfPANQsIF62WQaxugGgWcM1Z8JXKkzfUeg">
+</div>
+<div class="bg-primary text-on-primary p-3 rounded-2xl rounded-tr-sm shadow-[0_2px_4px_rgba(0,0,0,0.05)]">
+<p class="font-body-md text-sm">
+                            What was the specific top-line revenue figure?
+                        </p>
+</div>
+</div>
+<!-- AI Response -->
+<div class="flex gap-3 max-w-[85%]">
+<div class="w-8 h-8 rounded-full bg-primary-container text-on-primary-container flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-[16px]">robot_2</span>
+</div>
+<div class="bg-surface-container-lowest border border-outline-variant/20 p-3 rounded-2xl rounded-tl-sm shadow-[0_2px_4px_rgba(0,0,0,0.02)]">
+<p class="font-body-md text-on-surface text-sm">
+                            According to the Q3 2024 financial report, the top-line revenue was <strong>$42.5 million</strong>, representing a 14% year-over-year increase.
+                        </p>
+<div class="mt-2 pt-2 border-t border-outline-variant/20 flex gap-2">
+<span class="text-[10px] text-on-surface-variant bg-surface-container-low px-1.5 py-0.5 rounded font-mono-label">Page 2, Section 1.1</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Chat Input Area -->
+<div class="p-4 bg-surface-container-lowest border-t border-outline-variant/30"><div class="relative flex items-end gap-2 bg-[#F1F5F9] rounded-xl border border-transparent focus-within:border-primary focus-within:bg-surface-container-lowest transition-colors shadow-inner">
+    <textarea id="chat-input" class="w-full bg-transparent border-none focus:ring-0 resize-none py-3 pl-4 pr-10 text-body-md font-body-md text-on-surface placeholder:text-on-surface-variant/50 max-h-32" placeholder="Ask about this document..." rows="1" style="min-height: 48px;"></textarea>
+    <button class="absolute right-2 bottom-2 p-1.5 bg-primary text-on-primary rounded-lg hover:opacity-90 transition-opacity">
+        <span class="material-symbols-outlined text-[18px]" style="font-variation-settings: 'FILL' 1;">send</span>
+    </button>
+</div>
+<div class="mt-2 text-center">
+    <span class="text-[10px] text-on-surface-variant">AI responses may contain inaccuracies. Verify critical information.</span>
+</div></div>
+</section>
+</main>
+<script>
+        // Simple auto-resize for textarea
+        const tx = document.getElementsByTagName("textarea");
+        for (let i = 0; i < tx.length; i++) {
+            tx[i].setAttribute("style", "height:" + (tx[i].scrollHeight) + "px;overflow-y:hidden;min-height:48px;");
+            tx[i].addEventListener("input", OnInput, false);
+        }
+
+        function OnInput() {
+            this.style.height = "auto";
+            this.style.height = (this.scrollHeight) + "px";
+            if(this.scrollHeight > 128) {
+                this.style.overflowY = "auto";
+            } else {
+                this.style.overflowY = "hidden";
+            }
+        }
+    </script>
+
+
+</body></html>
